@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 1200px;
+}
+#wrapper{
+    margin: 0 auto;
+    width: 900px;
+}
+a{
+    background: royalblue;
+    display:inline-block;
+    margin: 15px;
+    padding: 15px;
+   
+}
+nav a:hover{
+    background-color: orange;
+    display:inline-block;
+    margin: 15px;
+    padding: 15px;
+}
+nav{
+    float: right;
+}
+.mainImg{
+    width: 150px;
+    height: 100px;
+}
+th, td{
+    text-align: center;
+}
+span{
+    color: orange;
+}
+.grad{
+    color: orange;
+}
+.qa{
+    color: green;
+}
+#mail{
+    display: block;
+    align-self: center;
+    border: 4px solid orange;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+#oNamaNaslov,p{
+    text-align: center;
+}
+.zeleniLink{
+    color: green;
+}
+.zeleniLink:visited{
+    color:red;
+}
+input{
+    width: 400px;
+}
+.forma{
+    text-align: left;
+}
+#radio{
+text-align: left;
+}
+

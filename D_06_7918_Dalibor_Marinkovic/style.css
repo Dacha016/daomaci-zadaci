@@ -30,6 +30,9 @@ textarea{
     [class *="col-"]{
         width: 100%;
     }
+    #special{
+        width:50%
+    }
     header{
         width: 100%;
     }
