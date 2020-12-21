@@ -1,5 +1,5 @@
 <?php
-$v = 156;
+$v = 30;
 $minV = 3;
 $n =40;
 $potrebnaKolicinaV = $n*$minV;
