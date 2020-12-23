@@ -7,18 +7,17 @@
 </head>
 <body>
     <?php
-       $n = 25;
-       $i = 0;
-       $k = 0;
-       while($i<=$n){
-           if($i%3==0){
-               $k=$i;
-               if($k%2!=0){
-                   echo "<p> Delioc broja $n koji je deljiv sa 3 i neparn je: $k,</p>";
-               }
-           }
-           $i++;
-       }
+    $n = 99;
+    $i = 1;
+    $k = 0;
+    while($i <= $n){
+        if($n % $i == 0 && $i % 3 == 0 && $i % 2 == 1)
+        {
+            $k++;   
+        }
+        $i++;
+    }
+    echo "<p> $k broja koja dele br $n su neparna i deljiva sa 3</p>";
     ?>
 </body>
 </html>
