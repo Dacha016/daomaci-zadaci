@@ -19,19 +19,17 @@
 </head>
 <body>
     <?php
-    $n = 1234;
-    $i = 0;
-    $k = strval($n);
-    $j = strlen($n);
+    $n=120;
+    $m=$n;
     $sum = 0;
-    while($i<$j){
-       $sum+=intval($k[$i]);
-       $i++;
+    while($n>0){
+        $sum+= $n%10;
+        $n =$n/10;
     }
-    if($sum==$n){
+    if($sum==$m){
         echo "<p id='jednak'>Zbir je $sum</p>";
        }
-    elseif($sum<$n){
+    elseif($sum<$m){
         echo "<p id='manji'>Zbir je $sum</p>";
        }
     ?>
