@@ -9,21 +9,21 @@
     <?php
     //resenje preko while 
     $n= 5;
-    $m =10;
+    $m = 10;
     $i = $n;
     $proizvod = 1;
-    $sum=0;
+    $sum = 0;
     $razlika =0;
     while($i<=$m){
-        if($i%7==0 || $i%3!=0){
+        if($i%7==0 && $i%3!=0){
             $proizvod*=$i;
         }
-        if($i%3==0 || $i%7!=0){
+        elseif($i%3==0 && $i%7!=0){
             $sum+=$i;
         }
         $i++;
     }
-    $razlika=$proizvod-$sum;
+    $razlika= $proizvod-$sum;
     echo "<p>Razlika proizvoda brojeva od $n do $m koji su deljivi sa 7 a nisu s 3 i zbira brojeva od $n do $m koji su deljivi sa 3 a nisu sa 7 je $razlika.</p>";
     // resenje preko for petlje
     $n= 5;
@@ -32,10 +32,10 @@
     $sum = 0;
     $razlika = 0;
     for($i=$n;$i<=$m;$i++){
-        if($i%7==0 || $i%3!=0){
+        if($i%7 == 0 && $i%3!=0){
             $proizvod*=$i;
         }
-        if($i%3==0 || $i%7!=0){
+        elseif($i%3==0 && $i%7!=0){
             $sum+=$i;
         }
     }
