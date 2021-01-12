@@ -21,19 +21,13 @@
                     </ul>
                     <div class="carousel-inner">
                         <?php
-                        $count = count(glob("images/*.jpeg"));
-                        for($i=1;$i<=3;$i++){
-                            $random = rand(1,$count);
-                            if($i%3==0){
-                                echo"<div class='img-fluid carousel-item active'><img src='images/$random.jpeg'></div>";
-                            }
-                            elseif($i%3==1){
-                                echo"<div class='img-fluid carousel-item'><img src='images/$random.jpeg'></div>";
-                            }
-                            else{
-                                echo"<div class='img-fluid carousel-item'><img src='images/$random.jpeg'></div>";
-                            }
-                        }
+                            $slike=scandir("images/");  
+                            unset($slike[0]);
+                            unset($slike[1]);
+                            shuffle($slike);
+                            echo"<div class='img-fluid carousel-item active'><img src='images/$slike[0]'></div>";
+                            echo"<div class='img-fluid carousel-item'><img src='images/$slike[1]'></div>";
+                            echo"<div class='img-fluid carousel-item'><img src='images/$slike[2]'></div>";
                         ?>
                     </div><!--end of carusel-inner -->
                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
