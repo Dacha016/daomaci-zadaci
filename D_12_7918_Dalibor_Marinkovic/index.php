@@ -2,25 +2,20 @@
 function digitron($br1,$br2,$operator){
     if($operator == "+"){
         $zbir = $br1+$br2;
-        return $zbir;
+        echo"<p>$br1 $operator $br2 = $zbir</p>";
     }
     elseif($operator == "-"){
         $razlika = $br1-$br2;
-        return $razlika;
+        echo"<p>$br1 $operator $br2 = $razlika</p>";
     }
     elseif($operator == "*"){
         $proizvod = $br1*$br2;
-        return $proizvod;
+        echo"<p>$br1 $operator $br2 = $proizvod</p>";
     }
     elseif($operator == "/"){
         $kolicnik = $br1/$br2;
-        return $kolicnik;
+        echo"<p>$br1 $operator $br2 = $kolicnik</p>";
     }
 }
-$br1=3;
-$br2=2;
-$operator="/";
-echo"<p>$br1 $operator $br2 = ";
-echo digitron($br1,$br2,$operator);
-echo"</p>";
+digitron(5,6,"*");
 ?>
