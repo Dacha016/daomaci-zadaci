@@ -17,5 +17,5 @@ function digitron($br1,$br2,$operator){
         echo"<p>$br1 $operator $br2 = $kolicnik</p>";
     }
 }
-digitron(5,6,"*");
+digitron(5,6,"+");
 ?>
