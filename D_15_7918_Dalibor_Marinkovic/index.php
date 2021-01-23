@@ -25,8 +25,11 @@ echo"<b>Ukupno ima: </b>". ukupnoSedista($autobusi)."<b> sedista.</b>";
 // autobus sa najvecim brojem sedista
 echo"<p><b>Autobus/i sa najvecim brojem sedista je/su:</b></p>";
 function maxSedista($autobusi){
-    $maxSedista=0;
     foreach($autobusi as $autobus){
+        $maxSedista=$autobus->getSedista();
+        break;
+    }
+   foreach($autobusi as $autobus){
         if($maxSedista<$autobus->getSedista()){
             $maxSedista=$autobus->getSedista();
         }
