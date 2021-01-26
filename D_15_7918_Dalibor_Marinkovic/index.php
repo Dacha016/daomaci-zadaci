@@ -25,32 +25,26 @@ echo"<b>Ukupno ima: </b>". ukupnoSedista($autobusi)."<b> sedista.</b>";
 // autobus sa najvecim brojem sedista
 echo"<p><b>Autobus/i sa najvecim brojem sedista je/su:</b></p>";
 function maxSedista($autobusi){
-    foreach($autobusi as $autobus){
+    $maxSedista=$autobusi[0]->getSedista();
+    $maxAutobus=$autobusi[0];
+    if($maxSedista<$autobus->getSedista()){
         $maxSedista=$autobus->getSedista();
-        break;
+        $maxAutobus=$autobus;
     }
-   foreach($autobusi as $autobus){
-        if($maxSedista<$autobus->getSedista()){
-            $maxSedista=$autobus->getSedista();
-        }
-    }
-    foreach($autobusi as $autobus){
-        if($maxSedista==$autobus->getSedista())
-        $autobus->stampaj();
-    }
+    
+    return $maxAutobus;
+
 }
-maxSedista($autobusi);
+maxSedista($autobusi)->stampaj();
 //maksimalan broj ljudi u autobusu
 function maxLjudi($autobusi,$ljudi){
     $suma=ukupnoSedista($autobusi);
-    foreach($autobusi as $autobus){
         if($suma>=$ljudi){
             return true;
         }
         else{
             return false;
         }
-    }
 }
 echo maxLjudi($autobusi,250)
 ?>
