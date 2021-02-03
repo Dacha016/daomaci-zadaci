@@ -6,7 +6,7 @@ CREATE TABLE `filmovi`
 `id` INT PRIMARY KEY,
 `naslov` VARCHAR(255) NOT NULL,
 `reziser` VARCHAR(255) NOT NULL,
-`god_izdanja` YEAR NOT NULL,
+`god_izdanja` YEAR  NOT NULL,
 `zanr` VARCHAR(255) NOT NULL,
 `ocena` DECIMAL(2,1)
 );
@@ -52,10 +52,10 @@ LIMIT 3;
 --Selektovati sve žanrove filmova, bez ponavljanja.
 SELECT DISTINCT `zanr` FROM `filmovi` ;
 --Selektovati sve filmove u obliku naslov (režiser).
-SELECT `naslov`,`reziser` FROM `filmovi`;
+SELECT CONCAT( `naslov`,' (',`reziser`,')') AS "Naslov(Reziser)" FROM `filmovi`;
 --naslov (režiser) – godina izdanja. Selektovane filmove sortirati rastuće prema godini izdanja.
-SELECT `naslov`,`reziser`, `god_izdanja` FROM `filmovi`
-ORDER BY `god_izdanja` ;
+SELECT CONCAT( `naslov`,' (',`reziser`,')',' - (',`god_izdanja`,')') AS "Naslov(Reziser) - God_izdanja" FROM `filmovi`
+ORDER BY `god_izdanja`;
 
 --Odrediti prosečnu ocenu fimova koji su izdati nakon 2000 godine
 SELECT AVG(`ocena`) AS "Prosecna ocena filmova koji su izdati nakon 2000-te" FROM `filmovi`	
