@@ -31,33 +31,33 @@ WHERE `zanr` LIKE "Tragedija" OR `zanr` LIKE "Komedija" OR `zanr` LIKE "Drama";
 --Selektovati sve filmove kojima je ocena između 5 i 10.
 SELECT * FROM `filmovi` 
 WHERE `ocena` BETWEEN 5 AND 10;
---Selektovati režisere (bez ponavljanja) koji su režirali filmove izdate 2003. godine i poređati ih abecednim redom.
+-- Selektovati režisere (bez ponavljanja) koji su režirali filmove izdate 2003. godine i poređati ih abecednim redom.
 SELECT DISTINCT `reziser` FROM `filmovi`
 WHERE `god_izdanja` = 2003
 ORDER BY `reziser`;
---Selektovati sve filmove tako da im zanr nije komedija.
+-- Selektovati sve filmove tako da im zanr nije komedija.
 SELECT * FROM `filmovi`
 WHERE `zanr` !="Komedija";
---Prikazati sve informacije o najbojle rangiranom filmu
+-- Prikazati sve informacije o najbojle rangiranom filmu
 SELECT * FROM `filmovi`
 WHERE `ocena`=(SELECT MAX(`ocena`) FROM `filmovi`);
---Prikazati sve informacije o najbolje rangiranoj drami.
+-- Prikazati sve informacije o najbolje rangiranoj drami.
 SELECT * FROM `filmovi`
 ORDER BY `zanr`="Drama" DESC
 LIMIT 1;
---Selektovati trojicu rezisera ciji filmovi imaju najbolje ocene.
-SELECT `reziser` FROM `filmovi` 
+-- Selektovati trojicu rezisera ciji filmovi imaju najbolje ocene.
+SELECT DISTINCT `reziser` FROM `filmovi` 
 ORDER BY `ocena` DESC
 LIMIT 3;
---Selektovati sve žanrove filmova, bez ponavljanja.
+-- Selektovati sve žanrove filmova, bez ponavljanja.
 SELECT DISTINCT `zanr` FROM `filmovi` ;
---Selektovati sve filmove u obliku naslov (režiser).
+-- Selektovati sve filmove u obliku naslov (režiser).
 SELECT CONCAT( `naslov`,' (',`reziser`,')') AS "Naslov(Reziser)" FROM `filmovi`;
---naslov (režiser) – godina izdanja. Selektovane filmove sortirati rastuće prema godini izdanja.
+-- naslov (režiser) – godina izdanja. Selektovane filmove sortirati rastuće prema godini izdanja.
 SELECT CONCAT( `naslov`,' (',`reziser`,')',' - (',`god_izdanja`,')') AS "Naslov(Reziser) - God_izdanja" FROM `filmovi`
 ORDER BY `god_izdanja`;
 
---Odrediti prosečnu ocenu fimova koji su izdati nakon 2000 godine
+-- Odrediti prosečnu ocenu fimova koji su izdati nakon 2000 godine
 SELECT AVG(`ocena`) AS "Prosecna ocena filmova koji su izdati nakon 2000-te" FROM `filmovi`	
 WHERE `god_izdanja`>2000;
 
