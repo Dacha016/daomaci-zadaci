@@ -64,7 +64,7 @@ require_once "connection.php";
         ?>
     </div>
     <div class="wrapper footer">
-        <p>Create by Dacha</p>
+        <p>Created by Dacha</p>
     </div>
 </body>
 </html>

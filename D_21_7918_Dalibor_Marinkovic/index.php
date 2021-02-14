@@ -27,7 +27,7 @@ require_once "connection.php";
         <h2 id="index-h2">Dobrodosli u bazu Videoteka 21 !!</h2>
     </div>
     <div class="wrapper footer">
-        <p>Create by Dacha</p>
+        <p>Created by Dacha</p>
     </div>
 </body>
 </html>
