@@ -1,0 +1,64 @@
+body{
+    margin: 0 auto;
+    background-image: url(video.jpeg);
+    color: white;
+}
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+    background:linear-gradient(#24231f,#5c5b57) ;
+    box-sizing: border-box;
+    border: 1px black solid;
+    overflow: hidden;
+}
+.main{
+    height: 76vh;
+    overflow:scroll; 
+    position: relative;
+}
+#index-h2{
+    position: absolute;              
+    top: 50%;
+    left: 50%;                      
+    transform: translate(-50%, -50%)
+    
+}
+h1{
+    float: left;
+    margin-left: 20px;
+}
+ul{
+    overflow: hidden;
+    float: right;
+}
+li{
+    list-style: none;
+    float: left;
+    margin:10px;
+}
+a{
+    color: white;
+    text-decoration: none;
+    border: 1px solid #242322;
+    display: inline-block;
+    padding: 5px;
+    background:linear-gradient(#24231f,#5c5b57) ;
+}
+h3{
+    text-align: center;
+}
+.naziv{
+  text-align: center;
+}
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+table{
+    margin: 20px auto;
+}
+
+.footer p{
+    text-align: center;
+}

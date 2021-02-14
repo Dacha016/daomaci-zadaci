@@ -1,0 +1,24 @@
+table{
+    margin: 50px auto;
+    background:linear-gradient(#2294e6,#7cabcc,#2a917d);
+    border: 3px black solid;
+    border-collapse: collapse;
+}
+
+th,tr,td{
+    text-align: center;
+    border: 1px black solid;
+    border-collapse: collapse;
+    padding: 5px;
+    
+}
+td:nth-child(even){
+    padding: 0 10px;
+}
+td:nth-child(even){
+    padding: 0 10px;
+}
+th{
+    border-bottom: 3px solid black;
+    font-size: 1.1em;
+}
