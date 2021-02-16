@@ -12,14 +12,14 @@ require_once "connection.php";
 </head>
 <body>
     <div class="wrapper">
-        <h1>Videoteka 21</h1>
+        <h1><a id="headline" href="index.php"> Videoteka 21</a></h1>
         <nav>
             <ul>
-                <li><a href="index.php">Pocetna</a></li>
-                <li><a href="podaci.php">Info o filmovima u db</a></li>
-                <li><a href="najbolji.php">Najbolje rangirani</a></li>
-                <li><a href="zanrovi.php">Zanrovi</a></li>
-                <li><a href="reziseri.php">Reziseri</a></li>
+            <li id="podaci"><a href="podaci.php">Info o filmovima u db </a></li>
+            <li id="najbolji"><a href="najbolji.php">Najbolje rangirani</a></li>
+            <li id="zanrovi"><a href="zanrovi.php">Zanrovi</a></li>
+            <li id="reziseri"><a href="reziseri.php">Reziseri</a></li>
+            <li id="godine" style="display:none"><a href="godine.php">Godine</a></li>
             </ul>
         </nav>
     </div>
@@ -28,8 +28,8 @@ require_once "connection.php";
         $sql="SELECT DISTINCT godina FROM filmovi ORDER BY godina";
         $result=$conn->query($sql);
         if($result->num_rows){
-            echo "<h3>Godina izanja filmova</h3>";
             echo"<div class='naziv'>";
+            echo "<h3>Godina izanja filmova</h3>";
             foreach($result as $row){
                 $godina=$row['godina'];
                 echo "<a href='#$godina'>". $godina. "</a>";

@@ -12,24 +12,24 @@ require_once "connection.php";
 </head>
 <body>
     <div class="wrapper">
-        <h1>Videoteka 21</h1>
+        <h1><a id="headline" href="index.php"> Videoteka 21</a></h1>
         <nav>
             <ul>
-                <li><a href="index.php">Pocetna</a></li>
-                <li><a href="podaci.php">Info o filmovima u db</a></li>
-                <li><a href="najbolji.php">Najbolje rangirani</a></li>
-                <li><a href="zanrovi.php">Zanrovi</a></li>
-                <li><a href="godine.php">Godine</a></li>
+            <li id="podaci"><a href="podaci.php">Info o filmovima u db </a></li>
+            <li id="najbolji"><a href="najbolji.php">Najbolje rangirani</a></li>
+            <li id="zanrovi"><a href="zanrovi.php">Zanrovi</a></li>
+            <li id="reziseri" style="display:none"><a href="reziseri.php">Reziseri</a></li>
+            <li id="godine"><a href="godine.php">Godine</a></li>
             </ul>
         </nav>
     </div>
     <div class="wrapper main">
         <?php
-        $sql="SELECT DISTINCT ime,prezime FROM reziseri";
+        $sql="SELECT DISTINCT ime,prezime FROM reziseri ORDER BY ime";
         $result=$conn->query($sql);
         if($result->num_rows){
-            echo "<h3>Reziseri filmova</h3>";
             echo"<div class='naziv'>";
+            echo "<h3>Reziseri filmova</h3>";
             foreach($result as $row){
                 $reziser=$row['ime'] . ' ' . $row['prezime'];
                     echo "<a id='tab-zanr' href='#$reziser'>". $reziser. "</a>";

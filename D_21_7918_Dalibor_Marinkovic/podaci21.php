@@ -1,31 +1,6 @@
-<?php
-require_once "connection.php";
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Videoteka21</title>
-</head>
-<body>
-    <div class="wrapper">
-        <h1><a id="headline" href="index.php"> Videoteka 21</a></h1>
-        <nav>
-            <ul>
-            <li id="podaci"><a href="podaci.php">Info o filmovima u db </a></li>
-            <li id="najbolji" style="display:none"><a href="najbolji.php">Najbolje rangirani</a></li>
-            <li id="zanrovi"><a href="zanrovi.php">Zanrovi</a></li>
-            <li id="reziseri"><a href="reziseri.php">Reziseri</a></li>
-            <li id="godine"><a href="godine.php">Godine</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="wrapper main">
+<?php require_once "header.php";?>
+<div class="wrapper main">
         <?php
-        
         $sql="SELECT filmovi.naslov,reziseri.ime,reziseri.prezime,filmovi.godina,zanrovi.naziv,filmovi.ocena FROM reziseri
         INNER JOIN filmovi
         ON filmovi.reziseri_id = reziseri.id
@@ -33,11 +8,10 @@ require_once "connection.php";
         ON filmovi_zanr.filmovi_id = filmovi.id
         INNER JOIN zanrovi 
         ON filmovi_zanr.zanrovi_id = zanrovi.id
-        WHERE ocena=(SELECT MAX(ocena)FROM filmovi)
         ORDER BY naslov;";
         $result=$conn->query($sql);
         if($result->num_rows){
-        echo "<h3>Najbolje rangirani filmovi</h3>";
+        echo "<h3>Filmovi u bazi</h3>";
             echo "<table>";
                 echo"<tr>
                     <th>Naziv filma</th>
@@ -64,8 +38,4 @@ require_once "connection.php";
         }
         ?>
     </div>
-    <div class="wrapper footer">
-        <p>Created by Dacha</p>
-    </div>
-</body>
-</html>
+<?php require_once "footer.php";?>
