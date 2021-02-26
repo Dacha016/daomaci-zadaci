@@ -29,6 +29,9 @@ if(!empty($_GET['unfollow'])){
         echo "<div>Error!".$conn->error."</div>";
     }
 }
+if(!empty($_GET['users_id'])){
+    $fId=$conn->real_escape_string($_GET['users_id']);
+}
 //table of users
 $sql="SELECT profiles.name,profiles.surname ,users.username,users.id  FROM profiles
 INNER JOIN users
@@ -46,9 +49,13 @@ if($result->num_rows){
             </tr>";
         foreach($result as $row){
             echo "<tr>";
-                echo "<td>". $row['name']." ".$row['surname']. "</td>";
+            $fId=$row['id'];
+                echo "<td><a href='profile.php?users_id=$fId'>". $row['name']." ".$row['surname']. "</a></td>";
                 echo "<td>". $row['username']. "</td>";
-                $fId=$row['id'];
+                
+
+
+
 //upit da li pratimo korisnika                
                 $sql="SELECT * FROM followers WHERE sender_id=$logId AND receiver_id=$fId";
                     $result1=$conn->query($sql);

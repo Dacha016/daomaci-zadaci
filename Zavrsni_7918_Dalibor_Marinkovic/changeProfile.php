@@ -4,15 +4,16 @@ require_once "helloBar.php";
 require_once "header.php";
 $id = $_SESSION["id"];
 //Postavljanje početnih vrednosti
-$name = $surname = $gender = $date = "";
-$nameErr = $surnameErr = $dateErr =  "";
+$name = $surname = $gender = $date = $bio = "";
+$nameErr = $surnameErr = $dateErr = $bioErr =  "";
 $q = "SELECT * FROM profiles WHERE users_id = $id";
 $result = $conn->query($q);
-$red = $result->fetch_assoc();
-$name = $red['name'];
-$surname = $red['surname'];
-$gender = $red['gender'];
-$dob = $red['dob'];
+$row = $result->fetch_assoc();
+$name = $row['name'];
+$surname = $row['surname'];
+$gender = $row['gender'];
+$dob = $row['dob'];
+$bio = $row['bio'];
 if($_SERVER["REQUEST_METHOD"]=="POST"){ 
     if(empty($_POST['name'])){
         $nameErr="Name field is empty";
@@ -72,15 +73,25 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 /*declare     */}
 /*min-date in */else{
 /*form        */    $date=$_POST["date"];
-        }       
+        } 
+        if(empty($bio)){
+            $bio=$_POST['bio'];
+        }
+        else{
+            $bio=$_POST['bio'];
+        }
+
+        
     if($name!="" || $surname!=""){
         $sql="UPDATE profiles 
             SET name ='$name',  
             surname ='$surname',  
             gender='$gender',  
-            dob='$date'
+            dob='$date',
+            bio='$bio'
             WHERE users_id=$id";
             $result=$conn->query($sql);
+
         $sql1="SELECT CONCAT(name,' ',surname) AS 'imePrezime', users_id FROM profiles INNER JOIN users ON profiles.users_id=users.id WHERE users_id=$id";
             $result1=$conn->query($sql1);
             $row1=$result1->fetch_assoc();
@@ -124,6 +135,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 Data of birth:
                 <input type="date" name="date" value="<?php echo $dob; ?>">
                 <span class="error"><?php echo $dateErr; ?></span>
+            </p>
+            <p>
+                Bio:
+                <textarea type="text" name="bio" value="<?php echo $bio; ?>"><?php echo $bio; ?></textarea>
+                <span class="error"><?php echo $bioErr; ?></span>
+                
             </p>
             <p>
                 <input type="submit" value="Submit">
