@@ -31,6 +31,7 @@ if(!empty($_GET['unfollow'])){
 }
 if(!empty($_GET['users_id'])){
     $fId=$conn->real_escape_string($_GET['users_id']);
+    
 }
 //table of users
 $sql="SELECT profiles.name,profiles.surname ,users.username,users.id  FROM profiles
